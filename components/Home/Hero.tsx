@@ -3,7 +3,6 @@
 import Image from "next/image";
 import HeroImg from "@/public/images/hero.svg";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 
 const Hero = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -14,15 +13,11 @@ const Hero = () => {
   };
 
   return (
-    <div className="pt-16 md:pt-20 pb-8 md:pb-12 bg-gradient-to-br from-gray-50 to-blue-50">
+    <div className="pt-16 md:pt-20 pb-8 md:pb-12 bg-gradient-to-br from-blue-50 via-white to-blue-50">
       <div className="w-full min-h-[80vh] flex flex-col items-center justify-center">
         <div className="w-[90%] lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-[3rem]">
           {/* content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          <div className="animate-fade-in-up">
             <h1 className="text-[32px] sm:text-[40px] lg:text-[48px] xl:text-[64px] text-[#05264e] leading-tight font-extrabold">
               Find Your <span className="text-blue-600">Dream Job</span> <br />
               Today
@@ -44,7 +39,7 @@ const Hero = () => {
               <button
                 onClick={handleSearch}
                 type="button"
-                className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-colors duration-200 flex items-center gap-2"
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold transition-all duration-300 flex items-center gap-2 shadow-md hover:shadow-lg"
               >
                 <svg
                   className="w-5 h-5"
@@ -65,7 +60,7 @@ const Hero = () => {
             <div className="mt-6 flex gap-4 text-sm text-gray-600">
               <span className="flex items-center gap-2">
                 <svg
-                  className="w-5 h-5 text-teal-400"
+                  className="w-5 h-5 text-blue-400"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -81,7 +76,7 @@ const Hero = () => {
               </span>
               <span className="flex items-center gap-2">
                 <svg
-                  className="w-5 h-5 text-teal-400"
+                  className="w-5 h-5 text-blue-400"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -96,14 +91,9 @@ const Hero = () => {
                 500+ Companies
               </span>
             </div>
-          </motion.div>
+          </div>
           {/* image */}
-          <motion.div
-            className="hidden lg:block"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
+          <div className="hidden lg:block">
             <Image
               src={HeroImg}
               alt="Job search illustration"
@@ -112,7 +102,7 @@ const Hero = () => {
               className="w-full h-auto drop-shadow-2xl rounded-2xl transform transition-transform duration-500 hover:scale-105"
               priority
             />
-          </motion.div>
+          </div>
         </div>
       </div>
 
