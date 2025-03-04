@@ -1,56 +1,61 @@
-import { Job } from '@/data'
-import Image from 'next/image'
-import React from 'react'
-import { BiMoney } from 'react-icons/bi'
-import { FaMapLocation, FaRegBookmark, } from 'react-icons/fa6'
+import { Job } from "@/data";
+import Image from "next/image";
+import React from "react";
+import { BiMoney } from "react-icons/bi";
+import { FaMapLocation, FaRegBookmark } from "react-icons/fa6";
 
 interface Props {
-  job: Job
+  job: Job;
 }
 export const JobCard = ({ job }: Props) => {
   return (
-    <div className="relative transition-transform duration-300 hover:scale-105 border-gray-600 rounded-lg  border-2 border-opacity-20 p-1 md:p-2">
-      <div className="flex items-center space-x-6">
-        {/* Image */}
-        <div>
-          <Image src={job.image} alt={job.title} width={50} height={50} className="object-cover" />
+    <div className="group relative overflow-hidden bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-100/50 hover:border-blue-100">
+      <div className="flex items-start space-x-4">
+        <div className="flex-shrink-0 p-3 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl">
+          <Image
+            src={job.image}
+            alt={job.title}
+            width={64}
+            height={64}
+            className="object-contain rounded-lg transform group-hover:scale-105 transition-transform duration-300"
+          />
         </div>
-        {/* content */}
-        <div>
-          <h1 className="text-base font-semibold mb-2">
+
+        <div className="flex-1 min-w-0">
+          <h2 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-200 mb-3">
             {job.title}
-          </h1>
-          <div className="flex items-center md:space-x-10 space-x-4">
-            {/* location */}
-            <div className="flex items-center space-x-2">
-              <FaMapLocation className='w-4 h-4 text-pink-600' />
-              <p className='text-sm text-black font-semibold opacity-60'>{job?.location}</p>
-            </div>
-            {/* salary */}
-            <div className="flex items-center space-x-2">
-              <BiMoney className='w-4 h-4 text-pink-600' />
-              <p className='text-sm text-black font-semibold text-opacity-60'>{job?.salary}</p>
-            </div>
-            {/* tags */}
+          </h2>
 
+          <div className="flex flex-wrap gap-4 mb-3">
+            <div className="flex items-center space-x-2 text-gray-600">
+              <FaMapLocation className="w-4 h-4 text-blue-500" />
+              <span className="text-sm">{job?.location}</span>
+            </div>
+            <div className="flex items-center space-x-2 text-gray-600">
+              <BiMoney className="w-4 h-4 text-green-500" />
+              <span className="text-sm">{job?.salary}</span>
+            </div>
           </div>
-          <div className='flex item-center space-x-2 sm:space-x-4 mt-[1rem]'>
-            <div className='text-[10px] sm:text-sm text-opacity-80 px-2 sm:px-6 py-1 rounded-full bg-opacity-30 font-semibold capitalize bg-green-600'>
+
+          <div className="flex flex-wrap gap-2">
+            <span className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-green-700 bg-green-50/80 rounded-full ring-1 ring-green-100/80">
               {job?.jobtype}
-            </div>
-            <div className='text-[10px] sm:text-sm text-opacity-80 px-2 sm:px-6 py-1 rounded-full bg-opacity-30 font-semibold capitalize bg-red-600'>
-              Private
-            </div>
-            <div className='text-[10px] sm:text-sm text-opacity-80 px-2 sm:px-6 py-1 rounded-full bg-opacity-30 font-semibold capitalize bg-blue-600'>
+            </span>
+            <span className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-blue-700 bg-blue-50/80 rounded-full ring-1 ring-blue-100/80">
               Urgent
-            </div>
+            </span>
+            <span className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-purple-700 bg-purple-50/80 rounded-full ring-1 ring-purple-100/80">
+              Private
+            </span>
           </div>
         </div>
+
+        <button className="flex-shrink-0 p-2.5 text-gray-400 hover:text-blue-600 transition-colors duration-200 rounded-full hover:bg-blue-50">
+          <FaRegBookmark className="w-5 h-5" />
+        </button>
       </div>
 
-      <div className='absolute z-40 top-4 right-4'>
-        <FaRegBookmark className='hover:text-orange-600'/>
-      </div>
+      <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
     </div>
-  )
-}
+  );
+};
