@@ -1,6 +1,7 @@
 import React from "react";
 import { Hero, JobCategory } from "../../paths";
 import FeatureJobs from "./FeatureJobs";
+import HowItWorks from "./HowItWorks";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <Hero />
       <JobCategory />
       <FeatureJobs />
+      <HowItWorks />
     </div>
   );
 };
