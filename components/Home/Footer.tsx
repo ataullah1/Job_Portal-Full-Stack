@@ -44,6 +44,9 @@ const Footer = () => {
           ]}
         />
       </div>
+      <div className="mt-8 text-center text-white/60 text-sm">
+        © {new Date().getFullYear()} GenJob. All rights reserved.
+      </div>
     </div>
   );
 };
