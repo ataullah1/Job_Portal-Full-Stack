@@ -10,9 +10,9 @@ const font = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Your Job Portal Name",
+  title: "GenJob Portal",
   description:
-    "Find the best job opportunities across various industries on Your Job Portal Name.",
+    "Find the best job opportunities across various industries on GenJob Portal.",
 };
 
 export default function RootLayout({

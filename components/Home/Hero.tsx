@@ -1,49 +1,147 @@
+"use client";
+
 import Image from "next/image";
 import HeroImg from "@/public/images/hero.svg";
-import React from "react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const Hero = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = () => {
+    // Implement search functionality
+    console.log("Searching for:", searchQuery);
+  };
+
   return (
-    <div className="pt-16 md:pt-20 pb-8 md:pb-12">
-      <div className="w-full min-h-[60vh] flex flex-col items-center justify-center">
-        <div className="w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 item-center gap-[2rem]">
+    <div className="pt-16 md:pt-20 pb-8 md:pb-12 bg-gradient-to-br from-gray-50 to-blue-50">
+      <div className="w-full min-h-[80vh] flex flex-col items-center justify-center">
+        <div className="w-[90%] lg:w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-[3rem]">
           {/* content */}
-          <div>
-            <h1 className="text-[28px] sm:text-[35px] lg:text-[45px] xl:text-[60px] text-[#05264e] leading-normal lg:leading-relaxed font-extrabold">
-              The <span className="text-blue-500">Easiest Way</span> <br /> To
-              Get Your Dream jobs{" "}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-[32px] sm:text-[40px] lg:text-[48px] xl:text-[64px] text-[#05264e] leading-tight font-extrabold">
+              Find Your <span className="text-blue-600">Dream Job</span> <br />
+              Today
             </h1>
-            <p className="text-[#4f5e6f] text-[16px] md:text-[18px] mt-[1rem]">
-              Looking for your dream job? Look no further! Our platform provides
-              the simplest path to securing the job you have always wanted.
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero,
-              praesentium. Provident voluptatem nobis recusandae. With our
-              user-friendly interface and extensive job listings, finding your
-              dream job has never been easier..
+            <p className="text-[#4f5e6f] text-[16px] md:text-[18px] mt-[1.5rem] leading-relaxed max-w-xl">
+              Discover thousands of job opportunities with all the information
+              you need. Its your future. Come find it. Manage all your job
+              applications from start to finish.
             </p>
             {/* search box */}
-            <div className="mt-[1.5rem]">
+            <div className="mt-[2rem] flex w-full max-w-2xl shadow-lg rounded-lg overflow-hidden">
               <input
-                className="w-[60%] md:w-[70%] lg:w-[75%] px-5 py-4 outline-none rounded-l-md bg-gray-200"
-                placeholder="eg:Frontend developer"
-                title="search box"
+                className="flex-1 px-6 py-4 outline-none border-2 border-transparent focus:border-blue-500 transition-colors"
+                placeholder="Search jobs (e.g. Frontend Developer)"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 type="text"
               />
               <button
-                title="Press to Search"
+                onClick={handleSearch}
                 type="button"
-                className="px-5 py-4 outline-none rounded-r-md bg-blue-500"
+                className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-colors duration-200 flex items-center gap-2"
               >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
                 Search
-              </button>{" "}
+              </button>
             </div>
-          </div>
+            <div className="mt-6 flex gap-4 text-sm text-gray-600">
+              <span className="flex items-center gap-2">
+                <svg
+                  className="w-5 h-5 text-teal-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+                10k+ Jobs
+              </span>
+              <span className="flex items-center gap-2">
+                <svg
+                  className="w-5 h-5 text-teal-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  />
+                </svg>
+                500+ Companies
+              </span>
+            </div>
+          </motion.div>
           {/* image */}
-          <div className="hidden lg:block">
-            <Image src={HeroImg} alt="hero image" width={700} height={400} />
-          </div>
+          <motion.div
+            className="hidden lg:block"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <Image
+              src={HeroImg}
+              alt="Job search illustration"
+              width={700}
+              height={400}
+              className="w-full h-auto drop-shadow-2xl rounded-2xl transform transition-transform duration-500 hover:scale-105"
+              priority
+            />
+          </motion.div>
         </div>
       </div>
+
+      {/* Animation Keyframes */}
+      <style jsx global>{`
+        @keyframes blob {
+          0% {
+            transform: translate(0px, 0px) scale(1);
+          }
+          33% {
+            transform: translate(30px, -50px) scale(1.1);
+          }
+          66% {
+            transform: translate(-20px, 20px) scale(0.9);
+          }
+          100% {
+            transform: translate(0px, 0px) scale(1);
+          }
+        }
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+      `}</style>
     </div>
   );
 };
