@@ -12,24 +12,11 @@ const JobDeatils = async ({ params }: { params: { id: string } }) => {
   const relatedJobs = JobData?.slice(0, 4);
 
   return (
-    <div className="mt-20 mb-12">
-      <div className="block sm:flex items-center justify-between w-[90%] max-w-7xl mx-auto">
-        <div className="flex-[0.7]">
-          {getJobDetail && <JobCard job={getJobDetail} />}
-        </div>
-        {session && <ApplyButton />}
-        {!session && (
-          <Link href={"/signup"}>
-            <button
-              type="button"
-              className="px-8 py-3 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 rounded-lg text-white shadow-md hover:shadow-lg transition-all duration-300"
-            >
-              Signup to Apply
-            </button>
-          </Link>
-        )}
+    <div className="mt-20 max-w-7xl mx-auto mb-12">
+      <div className="flex-[0.7]">
+        {getJobDetail && <JobCard job={getJobDetail} />}
       </div>
-      <div className="mt-16 w-[90%] max-w-7xl mx-auto space-y-12">
+      <div className="mt-16 space-y-12">
         <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
           <h1 className="text-2xl font-bold text-gray-900 mb-6">
             Job Description
