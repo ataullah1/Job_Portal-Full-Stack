@@ -1,6 +1,6 @@
 # Job Portal Application 🚀
 
-A modern job portal built with Next.js 14, TypeScript, and Tailwind CSS, featuring Google Authentication and a responsive user interface.
+A modern job portal built with Next.js, TypeScript, and Tailwind CSS, featuring Google Authentication and a responsive user interface.
 
 ## Features ✨
 
